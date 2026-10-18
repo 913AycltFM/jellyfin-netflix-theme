@@ -242,3 +242,11 @@ progress::-webkit-progress-value {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Strong red overrides for playback and Live TV program progress bars */
+:root { --netflix-red: #e50914 !important; --theme-accent: #e50914 !important; --theme-primary-color: #e50914 !important; }
+.itemProgressBar, .itemProgressBarForeground, .itemProgressBarInner, .playedIndicator, .progressBar, .progressBarForeground, .progressBarInner, .playbackProgress > div, .mdl-slider__background-lower, .mdl-slider__background-flex, .mdl-slider__thumb, .mdl-slider__thumb-container .mdl-slider__thumb, .programProgress, .programProgressBar, .programProgressForeground, .programCellProgress, .programCellProgressBar, .programCellProgressForeground, .programCell .progressBar, .programCell .progressBarForeground, .programCell .itemProgressBar, .programCell .itemProgressBarForeground, .programGuide .progressBar, .programGuide .progressBarForeground, .programGuide .programProgress, .programGuide .programProgressBar, .programGuide .programCellProgress, .programGuide .programCellProgressBar { background: #e50914 !important; background-color: #e50914 !important; border-color: #e50914 !important; }
+.currentTimeIndicator, .todayIndicator, .programGuide .currentTimeIndicator, .programGuide .todayIndicator, .programGuide .timeIndicator { background: #e50914 !important; background-color: #e50914 !important; border-color: #e50914 !important; }
+.mdl-slider::-webkit-slider-thumb { background: #e50914 !important; }
+.mdl-slider::-moz-range-thumb { background: #e50914 !important; }
