@@ -424,3 +424,66 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--netflix-red) !
 .osdControls svg [fill="#0088cc"] {
     fill: #e50914 !important;
 }
+
+
+/* ================= LIVE TV PROGRAM CARD BARS — FORCE NETFLIX RED =================
+   The screenshot shows cyan progress strips along the bottom of Live TV thumbnails.
+   Cover the common Jellyfin Live TV / guide progress selectors, with high specificity.
+   ============================================================================== */
+.programSection .card .itemProgressBar,
+.programSection .card .itemProgressBarBackground,
+.programSection .card .itemProgressBarForeground,
+.programSection .card .cardProgress,
+.programSection .card .cardProgressBar,
+.programSection .card .cardProgressBarForeground,
+.programSection .card .progressBar,
+.programSection .card .progressBarBackground,
+.programSection .card .progressBarForeground,
+.programSection .card .programProgress,
+.programSection .card .programProgressBar,
+.programSection .card .programProgressForeground,
+.programSection .card .programCellProgress,
+.programSection .card .programCellProgressBar,
+.programSection .card .programCellProgressForeground,
+.programGuide .card .itemProgressBar,
+.programGuide .card .itemProgressBarBackground,
+.programGuide .card .itemProgressBarForeground,
+.programGuide .card .progressBar,
+.programGuide .card .progressBarForeground,
+.programGuide .card .programProgressBar,
+.programGuide .card .programProgressForeground,
+.card .itemProgressBarForeground,
+.card .progressBarForeground,
+.card .programProgressForeground {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+/* Jellyfin's progress strip may be rendered as a pseudo-element */
+.programSection .card .itemProgressBar::before,
+.programSection .card .itemProgressBar::after,
+.programSection .card .itemProgressBarForeground::before,
+.programSection .card .itemProgressBarForeground::after,
+.programGuide .card .itemProgressBar::before,
+.programGuide .card .itemProgressBar::after,
+.card .itemProgressBar::before,
+.card .itemProgressBar::after,
+.card .itemProgressBarForeground::before,
+.card .itemProgressBarForeground::after {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+/* Override common Jellyfin cyan/blue accent tokens on card progress */
+.programSection,
+.programGuide,
+.card,
+.cardBox,
+.cardScalable {
+    --theme-primary-color: #e50914 !important;
+    --theme-accent-color: #e50914 !important;
+    --theme-accent: #e50914 !important;
+    --accent: #e50914 !important;
+}
