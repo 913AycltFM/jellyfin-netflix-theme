@@ -1,0 +1,244 @@
+/* 
+ * Jellyfin Netflix-Inspired Theme
+ * CSS only • Image-safe • Responsive • Live TV program guide accents
+ * Accent: Netflix red #e50914
+ */
+
+:root {
+  --netflix-red: #e50914;
+  --netflix-red-hover: #f6121d;
+  --jf-theme-accent: var(--netflix-red);
+  --jf-theme-bg: #141414;
+  --jf-theme-surface: #1c1c1c;
+  --jf-theme-surface-raised: #242424;
+  --jf-theme-text: #f5f5f1;
+  --jf-theme-muted: #b3b3b3;
+  --jf-theme-radius: 6px;
+  --jf-theme-transition: 180ms ease;
+}
+
+/* Global dark surfaces and text */
+html, body, .backgroundContainer, .skinBody, .mainAnimatedPages,
+.page, .dialog, .formDialog, .paperList, .listItem {
+  color: var(--jf-theme-text);
+}
+.backgroundContainer,
+.backdropContainer,
+.skinBody {
+  background-color: var(--jf-theme-bg);
+}
+.cardBox, .card, .paperList, .listItem,
+.dialog, .formDialog, .visualCardBox {
+  border-radius: var(--jf-theme-radius);
+}
+
+/* Navigation */
+.skinHeader, .headerTop, .header {
+  background: linear-gradient(180deg, rgba(0,0,0,.88), rgba(0,0,0,.35)) !important;
+  box-shadow: none !important;
+}
+.skinHeader.semiTransparent, .skinHeader.osdHeader {
+  background: rgba(10,10,10,.78) !important;
+  backdrop-filter: blur(12px);
+}
+.emby-tab-button, .emby-button, .navMenuOption {
+  transition: color var(--jf-theme-transition), background-color var(--jf-theme-transition), transform var(--jf-theme-transition);
+}
+.emby-tab-button:hover, .navMenuOption:hover {
+  color: #fff !important;
+}
+.emby-tab-button-active,
+.emby-tab-button.emby-tab-button-active,
+.navMenuOption-selected {
+  color: var(--netflix-red) !important;
+}
+.emby-tab-button-active::after {
+  background: var(--netflix-red) !important;
+}
+
+/* Buttons and focus states */
+.emby-button, .emby-button.show-focus:focus,
+.button-submit, .raised, .emby-button-primary {
+  border-radius: 4px;
+}
+.button-submit, .emby-button-primary, .button-accent,
+.emby-button[is="emby-button"]:hover.button-submit {
+  background: var(--netflix-red) !important;
+  color: #fff !important;
+}
+.button-submit:hover, .emby-button-primary:hover, .button-accent:hover {
+  background: var(--netflix-red-hover) !important;
+}
+:focus-visible {
+  outline: 2px solid var(--netflix-red) !important;
+  outline-offset: 2px;
+}
+.emby-checkbox:checked + span,
+.emby-radio:checked + span,
+.emby-slider-thumb, .mdl-slider__thumb {
+  background-color: var(--netflix-red) !important;
+}
+
+/* Library cards and posters. Do not alter native image geometry or apply filters. */
+.card, .cardBox, .cardScalable, .cardPadder, .cardContent,
+.itemsContainer > .card {
+  border-radius: var(--jf-theme-radius);
+}
+.cardBox, .cardScalable, .cardImageContainer, .cardContent {
+  overflow: hidden;
+}
+.cardImageContainer img,
+.cardImage, .card img,
+.cardContent img, .itemImage, .primaryImage,
+.blurhash-canvas {
+  filter: none !important;
+  image-rendering: auto;
+}
+.cardImageContainer img, .cardImage, .itemImage, .primaryImage {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .card:not(.card-hoverable) .cardImageContainer img:hover,
+  .card-hoverable:hover .cardImageContainer img,
+  .cardBox:hover .cardImage,
+  .cardScalable:hover .cardImage,
+  .cardScalable:hover .itemImage {
+    transform: scale(1.045);
+  }
+  .cardBox:hover, .cardScalable:hover, .visualCardBox:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,.38);
+  }
+}
+.cardText, .cardText-secondary, .itemName,
+.itemMiscInfo, .secondaryText {
+  color: var(--jf-theme-text);
+}
+.cardText-secondary, .secondaryText, .itemMiscInfo {
+  color: var(--jf-theme-muted);
+}
+
+/* Section headings */
+.sectionTitle, .sectionTitleText, h1, h2, h3 {
+  color: #fff;
+}
+.sectionTitle {
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.sectionTitle + .emby-button,
+.sectionTitleText + .emby-button {
+  color: var(--netflix-red);
+}
+
+/* Progress bars, including playback and watched progress */
+.itemProgressBar, .playedIndicator, .mdl-slider__background-lower,
+progress::-webkit-progress-value {
+  background-color: var(--netflix-red) !important;
+}
+.itemProgressBarForeground, .itemProgressBarInner,
+.mdl-slider__background-lower {
+  background: var(--netflix-red) !important;
+}
+.itemProgressBar, .playedIndicator {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Live TV guide: program progress and current-time markers */
+.programProgress,
+.programProgressBar,
+.programCellProgress,
+.programGuide .itemProgressBarForeground,
+.programCell .itemProgressBarForeground,
+.programCell .programProgress,
+.programCell .programProgressBar {
+  background-color: var(--netflix-red) !important;
+}
+.programGuide .currentTimeIndicator,
+.programGuide .todayIndicator,
+.currentTimeIndicator,
+.todayIndicator,
+.programGuide .currentTime,
+.programGuide .timeIndicator {
+  background-color: var(--netflix-red) !important;
+  border-color: var(--netflix-red) !important;
+}
+.programGuide .programCell:focus,
+.programGuide .programCell:focus-visible,
+.programCell:focus,
+.programCell:focus-visible,
+.programGuide .programCell.selected,
+.programCell.selected {
+  outline-color: var(--netflix-red) !important;
+  border-color: var(--netflix-red) !important;
+}
+.programGuide .programCell:hover,
+.programCell:hover {
+  border-color: rgba(229,9,20,.75) !important;
+}
+.programGuide .emby-button,
+.programGuide .emby-button:hover {
+  --theme-accent: var(--netflix-red);
+}
+
+/* Dialogs, menus, forms */
+.dialog, .formDialog, .actionSheet, .paperList {
+  background-color: var(--jf-theme-surface) !important;
+  color: var(--jf-theme-text);
+}
+.dialogHeader, .formDialogHeader {
+  background: var(--jf-theme-surface) !important;
+}
+.emby-input, .emby-textarea, .emby-select {
+  border-radius: 4px;
+}
+.emby-input:focus, .emby-textarea:focus, .emby-select:focus {
+  border-color: var(--netflix-red) !important;
+}
+
+/* Player controls */
+.videoOsdBottom, .videoOsdTop {
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+}
+.osdControls .emby-button:hover,
+.videoOsdBottom .emby-button:focus {
+  color: var(--netflix-red) !important;
+}
+.mdl-slider__thumb-container .mdl-slider__thumb {
+  background: var(--netflix-red) !important;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-color: #555 #171717;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #171717; }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--netflix-red); }
+
+/* Tablet and mobile: preserve image aspect ratios and prevent hover-only effects */
+@media (max-width: 900px) {
+  .sectionTitle { font-size: 1.25em; }
+  .cardBox:hover, .cardScalable:hover, .visualCardBox:hover { box-shadow: none; }
+}
+@media (max-width: 600px) {
+  :root { --jf-theme-radius: 4px; }
+  .skinHeader, .headerTop, .header { background: rgba(10,10,10,.94) !important; }
+  .sectionTitle { font-size: 1.1em; }
+  .cardImageContainer img, .cardImage, .itemImage, .primaryImage {
+    transform: none !important;
+  }
+  .programGuide, .programGrid { max-width: 100%; }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
