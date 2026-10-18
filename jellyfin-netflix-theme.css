@@ -245,3 +245,72 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--netflix-red) !
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* ==================================================
+   VIDEO PLAYER TIMELINE — FORCE NETFLIX RED
+   Jellyfin versions use different timeline/slider selectors.
+   ================================================== */
+.videoOsdPage,
+.videoOsdBottom,
+.videoOsdBottom .paper-icon-button-light {
+    --theme-primary-color: #e50914 !important;
+    --theme-accent-color: #e50914 !important;
+    --accent: #e50914 !important;
+}
+
+/* Jellyfin / Material Design seek slider */
+.videoOsdBottom .mdl-slider__background-lower,
+.videoOsdBottom .mdl-slider__thumb,
+.videoOsdBottom .mdl-slider::-webkit-slider-thumb,
+.videoOsdBottom .mdl-slider::-moz-range-thumb,
+.videoOsdBottom input[type="range"],
+.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
+.videoOsdBottom input[type="range"]::-moz-range-thumb,
+.mdl-slider__background-lower {
+    accent-color: #e50914 !important;
+}
+
+/* Native range control and common Jellyfin playback progress classes */
+.videoOsdBottom .mdl-slider__background-lower,
+.videoOsdBottom .progressBarForeground,
+.videoOsdBottom .progressBarPlayed,
+.videoOsdBottom .played,
+.videoOsdBottom .playedIndicator,
+.videoOsdBottom .playbackProgress,
+.videoOsdBottom .itemProgressBarForeground,
+.videoOsdBottom .progressBar .progress,
+.videoOsdBottom .slider-container .slider-track,
+.videoOsdBottom .slider-container .slider-fill {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
+.videoOsdBottom .mdl-slider::-webkit-slider-thumb {
+    background: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+.videoOsdBottom input[type="range"]::-moz-range-thumb,
+.videoOsdBottom .mdl-slider::-moz-range-thumb {
+    background: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+/* Keep the unplayed portion dark gray */
+.videoOsdBottom .mdl-slider__background-upper,
+.videoOsdBottom .progressBar,
+.videoOsdBottom .progressBarBackground,
+.videoOsdBottom .slider-container .slider-track,
+.videoOsdBottom .slider-track {
+    background-color: #666666 !important;
+}
+
+/* Some Jellyfin builds render the seek bar with a div-based progress element */
+.videoOsdBottom .progressBarForeground,
+.videoOsdBottom .progressBarPlayed,
+.videoOsdBottom .progressBar .progress {
+    background-color: #e50914 !important;
+}
