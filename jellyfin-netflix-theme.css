@@ -1,538 +1,247 @@
-/* 
- * Jellyfin Netflix-Inspired Theme
- * CSS only • Image-safe • Responsive • Live TV program guide accents
- * Accent: Netflix red #e50914
- */
+/* ==================================================
+   JELLYFIN — NETFLIX-INSPIRED PREMIUM THEME
+   CSS ONLY • IMAGE-SAFE • MOBILE FRIENDLY
+   LIVE TV PROGRAMS — NETFLIX RED
+   ================================================== */
 
 :root {
-  --netflix-red: #e50914;
-  --netflix-red-hover: #f6121d;
-  --jf-theme-accent: var(--netflix-red);
-  --jf-theme-bg: #141414;
-  --jf-theme-surface: #1c1c1c;
-  --jf-theme-surface-raised: #242424;
-  --jf-theme-text: #f5f5f1;
-  --jf-theme-muted: #b3b3b3;
-  --jf-theme-radius: 6px;
-  --jf-theme-transition: 180ms ease;
+    --netflix-red: #e50914;
+    --netflix-red-hover: #f6121d;
+    --netflix-black: #141414;
+    --netflix-dark: #181818;
+    --netflix-card: #222222;
+    --netflix-white: #ffffff;
+    --netflix-gray: #b3b3b3;
+    --netflix-border: #333333;
+
+    /* Jellyfin accent colors */
+    --theme-primary-color: #e50914 !important;
+    --theme-accent-color: #e50914 !important;
+    --theme-accent: #e50914 !important;
+    --accent: #e50914 !important;
+    --selection-color: #e50914 !important;
+    --jf-theme-accent: #e50914 !important;
 }
 
-/* Global dark surfaces and text */
-html, body, .backgroundContainer, .skinBody, .mainAnimatedPages,
-.page, .dialog, .formDialog, .paperList, .listItem {
-  color: var(--jf-theme-text);
-}
-.backgroundContainer,
-.backdropContainer,
-.skinBody {
-  background-color: var(--jf-theme-bg);
-}
-.cardBox, .card, .paperList, .listItem,
-.dialog, .formDialog, .visualCardBox {
-  border-radius: var(--jf-theme-radius);
+/* ================= GLOBAL APPEARANCE ================= */
+html, body, .backgroundContainer, .skinBody, .skinBodyMain,
+.mainAnimatedPages, .page {
+    background-color: var(--netflix-black) !important;
+    color: var(--netflix-white) !important;
 }
 
-/* Navigation */
-.skinHeader, .headerTop, .header {
-  background: linear-gradient(180deg, rgba(0,0,0,.88), rgba(0,0,0,.35)) !important;
-  box-shadow: none !important;
-}
-.skinHeader.semiTransparent, .skinHeader.osdHeader {
-  background: rgba(10,10,10,.78) !important;
-  backdrop-filter: blur(12px);
-}
-.emby-tab-button, .emby-button, .navMenuOption {
-  transition: color var(--jf-theme-transition), background-color var(--jf-theme-transition), transform var(--jf-theme-transition);
-}
-.emby-tab-button:hover, .navMenuOption:hover {
-  color: #fff !important;
-}
-.emby-tab-button-active,
-.emby-tab-button.emby-tab-button-active,
-.navMenuOption-selected {
-  color: var(--netflix-red) !important;
-}
-.emby-tab-button-active::after {
-  background: var(--netflix-red) !important;
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--netflix-white); }
+
+/* ================= NAVIGATION BAR ================= */
+.skinHeader, .skinHeader.semiTransparent {
+    background: rgba(20, 20, 20, 0.97) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25) !important;
+    backdrop-filter: none !important;
 }
 
-/* Buttons and focus states */
-.emby-button, .emby-button.show-focus:focus,
-.button-submit, .raised, .emby-button-primary {
-  border-radius: 4px;
-}
-.button-submit, .emby-button-primary, .button-accent,
-.emby-button[is="emby-button"]:hover.button-submit {
-  background: var(--netflix-red) !important;
-  color: #fff !important;
-}
-.button-submit:hover, .emby-button-primary:hover, .button-accent:hover {
-  background: var(--netflix-red-hover) !important;
-}
-:focus-visible {
-  outline: 2px solid var(--netflix-red) !important;
-  outline-offset: 2px;
-}
-.emby-checkbox:checked + span,
-.emby-radio:checked + span,
-.emby-slider-thumb, .mdl-slider__thumb {
-  background-color: var(--netflix-red) !important;
+.headerTabs, .emby-tabs { border: none !important; }
+
+.emby-tab-button {
+    color: #dddddd !important;
+    font-weight: 500 !important;
+    transition: color 0.2s ease;
 }
 
-/* Library cards and posters. Do not alter native image geometry or apply filters. */
-.card, .cardBox, .cardScalable, .cardPadder, .cardContent,
-.itemsContainer > .card {
-  border-radius: var(--jf-theme-radius);
-}
-.cardBox, .cardScalable, .cardImageContainer, .cardContent {
-  overflow: hidden;
-}
-.cardImageContainer img,
-.cardImage, .card img,
-.cardContent img, .itemImage, .primaryImage,
-.blurhash-canvas {
-  filter: none !important;
-  image-rendering: auto;
-}
-.cardImageContainer img, .cardImage, .itemImage, .primaryImage {
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-@media (hover: hover) and (pointer: fine) {
-  .card:not(.card-hoverable) .cardImageContainer img:hover,
-  .card-hoverable:hover .cardImageContainer img,
-  .cardBox:hover .cardImage,
-  .cardScalable:hover .cardImage,
-  .cardScalable:hover .itemImage {
-    transform: scale(1.045);
-  }
-  .cardBox:hover, .cardScalable:hover, .visualCardBox:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,.38);
-  }
-}
-.cardText, .cardText-secondary, .itemName,
-.itemMiscInfo, .secondaryText {
-  color: var(--jf-theme-text);
-}
-.cardText-secondary, .secondaryText, .itemMiscInfo {
-  color: var(--jf-theme-muted);
+.emby-tab-button:hover, .emby-tab-button-active {
+    color: var(--netflix-red) !important;
 }
 
-/* Section headings */
+.emby-tab-button-active {
+    border-bottom: 3px solid var(--netflix-red) !important;
+}
+
+/* ================= BUTTONS ================= */
+.emby-button, .paper-icon-button-light {
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+.button-submit, .raised.emby-button, .emby-button.raised,
+.emby-button-submit, .button-primary, .button-accent,
+.btn-primary, .btnPrimary, .accentButton, .mainActionButton,
+.mdl-button--raised, .mdl-button--colored {
+    background: var(--netflix-red) !important;
+    background-color: var(--netflix-red) !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
+    border-color: var(--netflix-red) !important;
+}
+
+.button-submit:hover, .raised.emby-button:hover, .emby-button.raised:hover,
+.emby-button-submit:hover, .button-primary:hover, .button-accent:hover,
+.btn-primary:hover, .btnPrimary:hover, .accentButton:hover,
+.mainActionButton:hover, .mdl-button--raised:hover, .mdl-button--colored:hover {
+    background: var(--netflix-red-hover) !important;
+    background-color: var(--netflix-red-hover) !important;
+    border-color: var(--netflix-red-hover) !important;
+    color: #ffffff !important;
+}
+
+.button-submit:active, .raised.emby-button:active, .emby-button.raised:active,
+.emby-button-submit:active, .button-primary:active, .button-accent:active {
+    background: #b20710 !important;
+    background-color: #b20710 !important;
+    border-color: #b20710 !important;
+}
+
+.emby-button:focus-visible, .paper-icon-button-light:focus-visible {
+    outline: 2px solid var(--netflix-red) !important;
+    outline-offset: 2px;
+}
+
+.paper-icon-button-light:hover, .paper-icon-button-light:focus-visible {
+    color: var(--netflix-red) !important;
+}
+
+/* ================= SECTION HEADINGS ================= */
 .sectionTitle, .sectionTitleText, h1, h2, h3 {
-  color: #fff;
+    color: var(--netflix-white) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.25px;
 }
-.sectionTitle {
-  font-weight: 700;
-  letter-spacing: .01em;
-}
-.sectionTitle + .emby-button,
-.sectionTitleText + .emby-button {
-  color: var(--netflix-red);
+.sectionTitle { margin-bottom: 0.65em !important; }
+
+/* ================= MOVIE AND TV CARDS ================= */
+.card, .cardBox, .cardScalable { border-radius: 7px !important; }
+.cardBox { background: transparent !important; }
+.cardImageContainer {
+    background-color: var(--netflix-card) !important;
+    border-radius: 7px !important;
 }
 
-/* Progress bars, including playback and watched progress */
-.itemProgressBar, .playedIndicator, .mdl-slider__background-lower,
-progress::-webkit-progress-value {
-  background-color: var(--netflix-red) !important;
+/* Preserve Jellyfin's native image sizing and behavior */
+.cardImage, .cardImageContainer img, .itemImage,
+.primaryImageWrapper img, .backdropImage {
+    filter: none !important;
+    -webkit-filter: none !important;
 }
-.itemProgressBarForeground, .itemProgressBarInner,
+
+/* ================= CARD ANIMATIONS ================= */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .cardScalable {
+        transition: transform 220ms ease !important;
+        transform-origin: center center;
+    }
+    .cardScalable:hover { transform: scale(1.035); z-index: 5; }
+    .cardBox { transition: background-color 180ms ease; }
+    .cardBox:hover { background-color: rgba(255, 255, 255, 0.035) !important; }
+}
+
+/* ================= CARD TITLES ================= */
+.cardText, .cardText-first, .itemName, .listItemBodyText {
+    color: var(--netflix-white) !important;
+    font-weight: 500;
+}
+.cardText-secondary, .secondaryText, .fieldDescription, .mediaSourceText {
+    color: var(--netflix-gray) !important;
+}
+
+/* ================= WATCH PROGRESS ================= */
+.itemProgressBarForeground {
+    background: var(--netflix-red) !important;
+    border-radius: 4px !important;
+}
+.itemProgressBar, .itemProgressBarBackground { border-radius: 4px !important; }
+
+/* ================= LIVE TV PROGRAMS ================= */
+.programProgress, .programProgressBar, .programProgressForeground,
+.programCellProgress, .programCellProgressBar, .programCellProgressForeground,
+.programCell .itemProgressBarForeground, .programGuide .itemProgressBarForeground {
+    background: var(--netflix-red) !important;
+    background-color: var(--netflix-red) !important;
+}
+
+.programGuide .currentTimeIndicator, .programGuide .currentTime,
+.programGuide .programGuideCurrentTime, .programGuide .todayIndicator,
+.currentTimeIndicator, .todayIndicator, .programGuide .timeIndicator {
+    background-color: var(--netflix-red) !important;
+    border-color: var(--netflix-red) !important;
+}
+
+.programCell:focus, .programCell:focus-visible,
+.programCell.selected, .programCell.selectedProgram {
+    outline-color: var(--netflix-red) !important;
+    border-color: var(--netflix-red) !important;
+}
+
 .mdl-slider__background-lower {
-  background: var(--netflix-red) !important;
+    background-color: var(--netflix-red) !important;
 }
-.itemProgressBar, .playedIndicator {
-  border-radius: 2px;
-  overflow: hidden;
-}
+.mdl-slider__background-upper { background-color: #666666 !important; }
+.mdl-slider::-webkit-slider-thumb { background: var(--netflix-red) !important; }
+.mdl-slider::-moz-range-thumb { background: var(--netflix-red) !important; }
 
-/* Live TV guide: program progress and current-time markers */
-.programProgress,
-.programProgressBar,
-.programCellProgress,
-.programGuide .itemProgressBarForeground,
-.programCell .itemProgressBarForeground,
-.programCell .programProgress,
-.programCell .programProgressBar {
-  background-color: var(--netflix-red) !important;
+/* ================= DETAILS AND DIALOGS ================= */
+.dialog, .dialogContainer, .actionSheet, .actionSheetContent,
+.mainDrawer, .navMenuOption, .paperList {
+    background-color: var(--netflix-dark) !important;
+    color: var(--netflix-white) !important;
 }
-.programGuide .currentTimeIndicator,
-.programGuide .todayIndicator,
-.currentTimeIndicator,
-.todayIndicator,
-.programGuide .currentTime,
-.programGuide .timeIndicator {
-  background-color: var(--netflix-red) !important;
-  border-color: var(--netflix-red) !important;
+.navMenuOption:hover, .listItem:hover, .actionSheetMenuItem:hover {
+    background-color: #303030 !important;
 }
-.programGuide .programCell:focus,
-.programGuide .programCell:focus-visible,
-.programCell:focus,
-.programCell:focus-visible,
-.programGuide .programCell.selected,
-.programCell.selected {
-  outline-color: var(--netflix-red) !important;
-  border-color: var(--netflix-red) !important;
-}
-.programGuide .programCell:hover,
-.programCell:hover {
-  border-color: rgba(229,9,20,.75) !important;
-}
-.programGuide .emby-button,
-.programGuide .emby-button:hover {
-  --theme-accent: var(--netflix-red);
-}
+.dialog, .formDialog { border-radius: 10px !important; }
+.paperList, .listItem-border { border-color: var(--netflix-border) !important; }
 
-/* Dialogs, menus, forms */
-.dialog, .formDialog, .actionSheet, .paperList {
-  background-color: var(--jf-theme-surface) !important;
-  color: var(--jf-theme-text);
-}
-.dialogHeader, .formDialogHeader {
-  background: var(--jf-theme-surface) !important;
-}
+/* ================= SEARCH AND FORM FIELDS ================= */
 .emby-input, .emby-textarea, .emby-select {
-  border-radius: 4px;
+    background: #252525 !important;
+    color: var(--netflix-white) !important;
+    border: 1px solid #444444 !important;
+    border-radius: 5px !important;
 }
 .emby-input:focus, .emby-textarea:focus, .emby-select:focus {
-  border-color: var(--netflix-red) !important;
+    border-color: var(--netflix-red) !important;
+    outline: none !important;
+}
+input[type="checkbox"], input[type="radio"] { accent-color: var(--netflix-red) !important; }
+
+.emby-checkbox:checked + span, .emby-radio:checked + span,
+.mdl-switch.is-checked .mdl-switch__thumb,
+.mdl-switch.is-checked .mdl-switch__track {
+    background-color: var(--netflix-red) !important;
+    border-color: var(--netflix-red) !important;
 }
 
-/* Player controls */
+/* ================= PLAYER CONTROLS ================= */
 .videoOsdBottom, .videoOsdTop {
-  background: linear-gradient(transparent, rgba(0,0,0,.82));
-}
-.osdControls .emby-button:hover,
-.videoOsdBottom .emby-button:focus {
-  color: var(--netflix-red) !important;
-}
-.mdl-slider__thumb-container .mdl-slider__thumb {
-  background: var(--netflix-red) !important;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.88)) !important;
 }
 
-/* Scrollbars */
-* {
-  scrollbar-color: #555 #171717;
-  scrollbar-width: thin;
+/* ================= ADMIN DASHBOARD ================= */
+.dashboardDocument, .dashboardGeneralForm, .dashboardConfigurationPage {
+    background: var(--netflix-black) !important;
 }
-::-webkit-scrollbar { width: 9px; height: 9px; }
-::-webkit-scrollbar-track { background: #171717; }
-::-webkit-scrollbar-thumb { background: #555; border-radius: 8px; }
+
+/* ================= SCROLLBARS ================= */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--netflix-black); }
+::-webkit-scrollbar-thumb { background: #555555; border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--netflix-red); }
 
-/* Tablet and mobile: preserve image aspect ratios and prevent hover-only effects */
-@media (max-width: 900px) {
-  .sectionTitle { font-size: 1.25em; }
-  .cardBox:hover, .cardScalable:hover, .visualCardBox:hover { box-shadow: none; }
-}
+/* ================= MOBILE: PHONES ================= */
 @media (max-width: 600px) {
-  :root { --jf-theme-radius: 4px; }
-  .skinHeader, .headerTop, .header { background: rgba(10,10,10,.94) !important; }
-  .sectionTitle { font-size: 1.1em; }
-  .cardImageContainer img, .cardImage, .itemImage, .primaryImage {
-    transform: none !important;
-  }
-  .programGuide, .programGrid { max-width: 100%; }
+    .sectionTitle { font-size: 1.1rem !important; }
+    .cardImageContainer { border-radius: 5px !important; }
+    .skinHeader, .skinHeader.semiTransparent { backdrop-filter: none !important; }
+    .cardScalable:hover { transform: none !important; }
 }
 
-/* Respect reduced-motion settings */
+/* ================= TABLETS ================= */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .sectionTitle { font-size: 1.25rem !important; }
+}
+
+/* ================= ACCESSIBILITY ================= */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-
-/* Strong red overrides for playback and Live TV program progress bars */
-:root { --netflix-red: #e50914 !important; --theme-accent: #e50914 !important; --theme-primary-color: #e50914 !important; }
-.itemProgressBar, .itemProgressBarForeground, .itemProgressBarInner, .playedIndicator, .progressBar, .progressBarForeground, .progressBarInner, .playbackProgress > div, .mdl-slider__background-lower, .mdl-slider__background-flex, .mdl-slider__thumb, .mdl-slider__thumb-container .mdl-slider__thumb, .programProgress, .programProgressBar, .programProgressForeground, .programCellProgress, .programCellProgressBar, .programCellProgressForeground, .programCell .progressBar, .programCell .progressBarForeground, .programCell .itemProgressBar, .programCell .itemProgressBarForeground, .programGuide .progressBar, .programGuide .progressBarForeground, .programGuide .programProgress, .programGuide .programProgressBar, .programGuide .programCellProgress, .programGuide .programCellProgressBar { background: #e50914 !important; background-color: #e50914 !important; border-color: #e50914 !important; }
-.currentTimeIndicator, .todayIndicator, .programGuide .currentTimeIndicator, .programGuide .todayIndicator, .programGuide .timeIndicator { background: #e50914 !important; background-color: #e50914 !important; border-color: #e50914 !important; }
-.mdl-slider::-webkit-slider-thumb { background: #e50914 !important; }
-.mdl-slider::-moz-range-thumb { background: #e50914 !important; }
-
-
-/* Netflix-red buttons and interactive controls; override Jellyfin's default blue accent */
-:root {
-  --theme-accent: #e50914 !important;
-  --theme-primary-color: #e50914 !important;
-  --accent: #e50914 !important;
-  --primary-color: #e50914 !important;
-  --button-background: #e50914 !important;
-}
-.button-submit,
-.button-flat,
-.emby-button,
-.paper-icon-button-light,
-.raised,
-.btn,
-button,
-select,
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-.emby-select,
-.emby-input + .emby-button,
-.emby-button:not(.emby-button-link),
-.playstatebutton-icon,
-.cardOverlayButton,
-.cardOverlayButton-hover,
-.mdl-button--raised,
-.mdl-button--fab,
-.mdl-button--colored {
-  --theme-accent: #e50914 !important;
-  --theme-primary-color: #e50914 !important;
-  color: inherit;
-}
-.button-submit,
-.button-submit:not(:disabled),
-.raised,
-.btn-primary,
-.button-primary,
-.emby-button-submit,
-.mdl-button--raised,
-.mdl-button--colored {
-  background: #e50914 !important;
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
-}
-.button-submit:hover,
-.raised:hover,
-.btn-primary:hover,
-.button-primary:hover,
-.emby-button-submit:hover,
-.mdl-button--raised:hover,
-.mdl-button--colored:hover {
-  background: #b20710 !important;
-  background-color: #b20710 !important;
-  border-color: #b20710 !important;
-}
-.emby-checkbox:checked + span,
-.emby-radio:checked + span,
-.emby-slider-thumb,
-.mdl-slider__thumb,
-.mdl-switch.is-checked .mdl-switch__thumb,
-.mdl-switch.is-checked .mdl-switch__track {
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
-}
-.emby-checkbox:checked + span::before,
-.emby-radio:checked + span::before {
-  border-color: #e50914 !important;
-}
-
-
-/* ==================================================
-   JELLYFIN BUTTON COLOR FIX — NETFLIX RED
-   Covers common Jellyfin buttons and accent variables.
-   Keeps icon-only controls and image styling intact.
-   ================================================== */
-:root {
-  --netflix-red: #e50914 !important;
-  --netflix-red-hover: #f6121d !important;
-  --theme-primary-color: #e50914 !important;
-  --theme-accent: #e50914 !important;
-  --accent: #e50914 !important;
-  --primary-color: #e50914 !important;
-  --button-background: #e50914 !important;
-  --jf-theme-accent: #e50914 !important;
-}
-
-/* Primary/action buttons */
-.button-submit,
-.raised.emby-button,
-.emby-button.raised,
-.emby-button-submit,
-.button-primary,
-.button-accent,
-.btn-primary,
-.btnPrimary,
-.accentButton,
-.mainActionButton,
-.mdl-button--raised,
-.mdl-button--colored {
-  background: #e50914 !important;
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
-  color: #ffffff !important;
-}
-
-/* Hover and pressed states */
-.button-submit:hover,
-.raised.emby-button:hover,
-.emby-button.raised:hover,
-.emby-button-submit:hover,
-.button-primary:hover,
-.button-accent:hover,
-.btn-primary:hover,
-.btnPrimary:hover,
-.accentButton:hover,
-.mainActionButton:hover,
-.mdl-button--raised:hover,
-.mdl-button--colored:hover {
-  background: #f6121d !important;
-  background-color: #f6121d !important;
-  border-color: #f6121d !important;
-  color: #ffffff !important;
-}
-
-.button-submit:active,
-.raised.emby-button:active,
-.emby-button.raised:active,
-.emby-button-submit:active,
-.button-primary:active,
-.button-accent:active,
-.btn-primary:active,
-.btnPrimary:active,
-.accentButton:active,
-.mainActionButton:active {
-  background: #b20710 !important;
-  background-color: #b20710 !important;
-  border-color: #b20710 !important;
-}
-
-/* Icon-only buttons: keep their normal transparent surface, make icons red on hover */
-.paper-icon-button-light:hover,
-.paper-icon-button-light:focus-visible {
-  color: #e50914 !important;
-}
-
-/* Selected tabs, toggles, checkboxes, radios and slider accents */
-.emby-tab-button-active,
-.emby-tab-button:hover,
-.emby-checkbox:checked + span,
-.emby-radio:checked + span,
-.mdl-slider__thumb,
-.mdl-slider__background-lower,
-.mdl-switch.is-checked .mdl-switch__thumb,
-.mdl-switch.is-checked .mdl-switch__track {
-  accent-color: #e50914 !important;
-  border-color: #e50914 !important;
-}
-
-.emby-checkbox:checked + span,
-.emby-radio:checked + span,
-.mdl-slider__thumb,
-.mdl-slider__background-lower,
-.mdl-switch.is-checked .mdl-switch__thumb,
-.mdl-switch.is-checked .mdl-switch__track {
-  background-color: #e50914 !important;
-}
-
-
-/* ==================================================
-   FINAL ACCENT OVERRIDES — BUTTONS + LIVE TV
-   Added after the main theme to override default blue styles.
-   ================================================== */
-:root {
-  --theme-primary-color: #e50914 !important;
-  --theme-accent-color: #e50914 !important;
-  --theme-accent: #e50914 !important;
-  --accent: #e50914 !important;
-  --selection-color: #e50914 !important;
-  --jf-theme-accent: #e50914 !important;
-  --button-background: #e50914 !important;
-}
-
-/* Common Jellyfin primary, raised and action buttons */
-.emby-button.button-submit,
-.emby-button.raised,
-.raised.emby-button,
-.button-submit,
-.emby-button-submit,
-.button-primary,
-.button-accent,
-.btn-primary,
-.btnPrimary,
-.accentButton,
-.mainActionButton,
-.mdl-button--raised,
-.mdl-button--colored {
-  background: #e50914 !important;
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
-  color: #ffffff !important;
-}
-
-/* Hover and focus for primary buttons */
-.emby-button.button-submit:hover,
-.emby-button.raised:hover,
-.raised.emby-button:hover,
-.button-submit:hover,
-.emby-button-submit:hover,
-.button-primary:hover,
-.button-accent:hover,
-.btn-primary:hover,
-.btnPrimary:hover,
-.accentButton:hover,
-.mainActionButton:hover,
-.mdl-button--raised:hover,
-.mdl-button--colored:hover {
-  background: #f6121d !important;
-  background-color: #f6121d !important;
-  border-color: #f6121d !important;
-  color: #ffffff !important;
-}
-
-.emby-button.button-submit:active,
-.emby-button.raised:active,
-.raised.emby-button:active,
-.button-submit:active,
-.emby-button-submit:active,
-.button-primary:active,
-.button-accent:active {
-  background: #b20710 !important;
-  background-color: #b20710 !important;
-  border-color: #b20710 !important;
-}
-
-/* Interactive accents without painting every icon-only button solid red */
-.emby-tab-button-active,
-.emby-tab-button:hover,
-.emby-checkbox:checked + span,
-.emby-radio:checked + span,
-input[type="checkbox"],
-input[type="radio"],
-.mdl-slider__thumb,
-.mdl-slider__background-lower {
-  accent-color: #e50914 !important;
-}
-
-.emby-checkbox:checked + span,
-.emby-radio:checked + span,
-.mdl-slider__thumb,
-.mdl-slider__background-lower,
-.mdl-switch.is-checked .mdl-switch__thumb,
-.mdl-switch.is-checked .mdl-switch__track {
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
-}
-
-/* Live TV program guide: progress and current-time indicators */
-.itemProgressBarForeground,
-.programProgress,
-.programProgressBar,
-.programProgressForeground,
-.programCellProgress,
-.programCellProgressBar,
-.programCellProgressForeground,
-.programCell .itemProgressBarForeground,
-.programCell .progressBarForeground,
-.programGuide .itemProgressBarForeground,
-.programGuide .progressBarForeground {
-  background: #e50914 !important;
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
-}
-
-.currentTimeIndicator,
-.todayIndicator,
-.programGuide .currentTimeIndicator,
-.programGuide .currentTime,
-.programGuide .programGuideCurrentTime,
-.programGuide .todayIndicator,
-.programGuide .timeIndicator {
-  background: #e50914 !important;
-  background-color: #e50914 !important;
-  border-color: #e50914 !important;
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }
