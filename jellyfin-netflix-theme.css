@@ -250,3 +250,73 @@ progress::-webkit-progress-value {
 .currentTimeIndicator, .todayIndicator, .programGuide .currentTimeIndicator, .programGuide .todayIndicator, .programGuide .timeIndicator { background: #e50914 !important; background-color: #e50914 !important; border-color: #e50914 !important; }
 .mdl-slider::-webkit-slider-thumb { background: #e50914 !important; }
 .mdl-slider::-moz-range-thumb { background: #e50914 !important; }
+
+
+/* Netflix-red buttons and interactive controls; override Jellyfin's default blue accent */
+:root {
+  --theme-accent: #e50914 !important;
+  --theme-primary-color: #e50914 !important;
+  --accent: #e50914 !important;
+  --primary-color: #e50914 !important;
+  --button-background: #e50914 !important;
+}
+.button-submit,
+.button-flat,
+.emby-button,
+.paper-icon-button-light,
+.raised,
+.btn,
+button,
+select,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.emby-select,
+.emby-input + .emby-button,
+.emby-button:not(.emby-button-link),
+.playstatebutton-icon,
+.cardOverlayButton,
+.cardOverlayButton-hover,
+.mdl-button--raised,
+.mdl-button--fab,
+.mdl-button--colored {
+  --theme-accent: #e50914 !important;
+  --theme-primary-color: #e50914 !important;
+  color: inherit;
+}
+.button-submit,
+.button-submit:not(:disabled),
+.raised,
+.btn-primary,
+.button-primary,
+.emby-button-submit,
+.mdl-button--raised,
+.mdl-button--colored {
+  background: #e50914 !important;
+  background-color: #e50914 !important;
+  border-color: #e50914 !important;
+}
+.button-submit:hover,
+.raised:hover,
+.btn-primary:hover,
+.button-primary:hover,
+.emby-button-submit:hover,
+.mdl-button--raised:hover,
+.mdl-button--colored:hover {
+  background: #b20710 !important;
+  background-color: #b20710 !important;
+  border-color: #b20710 !important;
+}
+.emby-checkbox:checked + span,
+.emby-radio:checked + span,
+.emby-slider-thumb,
+.mdl-slider__thumb,
+.mdl-switch.is-checked .mdl-switch__thumb,
+.mdl-switch.is-checked .mdl-switch__track {
+  background-color: #e50914 !important;
+  border-color: #e50914 !important;
+}
+.emby-checkbox:checked + span::before,
+.emby-radio:checked + span::before {
+  border-color: #e50914 !important;
+}
