@@ -314,3 +314,113 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--netflix-red) !
 .videoOsdBottom .progressBar .progress {
     background-color: #e50914 !important;
 }
+
+
+/* ================= JELLYFIN SEEK BAR — CROSS-VERSION OVERRIDE =================
+   Target Jellyfin's emby-slider as well as the older Material slider.
+   Keep this block last so it wins over earlier theme rules.
+   ============================================================================ */
+:root,
+.skinBody,
+.videoOsdPage,
+.videoOsdBottom,
+.osdControls,
+.nowPlayingBar {
+    --theme-primary-color: #e50914 !important;
+    --theme-accent-color: #e50914 !important;
+    --theme-accent: #e50914 !important;
+    --accent: #e50914 !important;
+    --slider-thumb-color: #e50914 !important;
+    accent-color: #e50914 !important;
+}
+
+/* Jellyfin's current and legacy slider components */
+.emby-slider,
+.emby-slider-container,
+.emby-slider-background,
+.emby-slider-track,
+.emby-slider-fill,
+.emby-slider-thumb,
+.emby-slider-thumb::before,
+.emby-slider-thumb::after,
+.osdControls .emby-slider,
+.osdControls .emby-slider-background,
+.osdControls .emby-slider-track,
+.osdControls .emby-slider-fill,
+.osdControls .emby-slider-thumb,
+.nowPlayingBar .emby-slider-background,
+.nowPlayingBar .emby-slider-track,
+.nowPlayingBar .emby-slider-fill,
+.nowPlayingBar .emby-slider-thumb {
+    accent-color: #e50914 !important;
+}
+
+.emby-slider-background,
+.emby-slider-track,
+.osdControls .emby-slider-background,
+.osdControls .emby-slider-track,
+.nowPlayingBar .emby-slider-background,
+.nowPlayingBar .emby-slider-track {
+    background-color: #666666 !important;
+}
+
+.emby-slider-fill,
+.emby-slider-thumb,
+.osdControls .emby-slider-fill,
+.osdControls .emby-slider-thumb,
+.nowPlayingBar .emby-slider-fill,
+.nowPlayingBar .emby-slider-thumb {
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+    color: #e50914 !important;
+}
+
+/* Progress/seek elements used by different Jellyfin player builds */
+.osdControls .progressBar .progress,
+.osdControls .progressBarForeground,
+.osdControls .progressBarPlayed,
+.osdControls .played,
+.osdControls .playedIndicator,
+.osdControls .playbackProgress,
+.osdControls .itemProgressBarForeground,
+.osdControls .sliderFill,
+.osdControls .sliderValue,
+.nowPlayingBar .progressBarForeground,
+.nowPlayingBar .progressBarPlayed,
+.nowPlayingBar .played,
+.nowPlayingBar .playbackProgress {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+/* Native browser seek inputs */
+.videoOsdBottom input[type="range"],
+.osdControls input[type="range"],
+.nowPlayingBar input[type="range"] {
+    accent-color: #e50914 !important;
+}
+.videoOsdBottom input[type="range"]::-webkit-slider-runnable-track,
+.osdControls input[type="range"]::-webkit-slider-runnable-track,
+.nowPlayingBar input[type="range"]::-webkit-slider-runnable-track {
+    accent-color: #e50914 !important;
+}
+.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
+.osdControls input[type="range"]::-webkit-slider-thumb,
+.nowPlayingBar input[type="range"]::-webkit-slider-thumb,
+.videoOsdBottom input[type="range"]::-moz-range-thumb,
+.osdControls input[type="range"]::-moz-range-thumb,
+.nowPlayingBar input[type="range"]::-moz-range-thumb {
+    background: #e50914 !important;
+    border-color: #e50914 !important;
+}
+
+/* SVG-based timeline fills */
+.videoOsdBottom svg [fill="#00a4dc"],
+.videoOsdBottom svg [fill="#52b54b"],
+.videoOsdBottom svg [fill="#0088cc"],
+.osdControls svg [fill="#00a4dc"],
+.osdControls svg [fill="#52b54b"],
+.osdControls svg [fill="#0088cc"] {
+    fill: #e50914 !important;
+}
