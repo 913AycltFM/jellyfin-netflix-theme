@@ -487,3 +487,39 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--netflix-red) !
     --theme-accent: #e50914 !important;
     --accent: #e50914 !important;
 }
+
+
+/* FINAL FIX: Jellyfin Web uses this exact class for card progress fills.
+   Override the actual palette token and remove any inherited blue gradient. */
+:root {
+    --jf-palette-primary-main: #e50914 !important;
+    --jf-palette-primary-light: #f6121d !important;
+    --jf-palette-primary-dark: #b20710 !important;
+    --jf-palette-secondary-main: #e50914 !important;
+    --jf-palette-secondary-light: #f6121d !important;
+    --jf-palette-secondary-dark: #b20710 !important;
+    --theme-primary-color: #e50914 !important;
+    --theme-accent-color: #e50914 !important;
+}
+
+.itemProgressBarForeground,
+.itemProgressBar .itemProgressBarForeground,
+.itemProgressBarBackground .itemProgressBarForeground,
+.cardImageContainer .itemProgressBarForeground,
+.cardBox .itemProgressBarForeground,
+.cardScalable .itemProgressBarForeground,
+.card .itemProgressBarForeground,
+.itemProgressBarForeground-recording {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    background-image: none !important;
+    border-color: #e50914 !important;
+    color: #e50914 !important;
+    box-shadow: none !important;
+}
+
+.itemProgressBar,
+.itemProgressBarBackground {
+    background-color: #164b55 !important;
+    background-image: none !important;
+}
