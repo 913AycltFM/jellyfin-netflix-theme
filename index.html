@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="A Netflix-inspired, image-safe CSS theme for Jellyfin with red Live TV guide progress accents.">
+  <title>Jellyfin Netflix Theme</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Jellyfin Netflix Theme home"><span class="brand-mark">N</span> Jellyfin Theme</a>
+    <a class="github-link" href="https://github.com/913AycltFM/jellyfin-netflix-theme">View on GitHub ↗</a>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">COMMUNITY CSS THEME</p>
+      <h1>Your Jellyfin.<br><span>More cinematic.</span></h1>
+      <p class="intro">A dark Netflix-inspired look for Jellyfin, with red accents, subtle poster hover effects, responsive styling, and red progress indicators in the Live TV guide.</p>
+      <div class="hero-actions">
+        <a class="primary-button" href="jellyfin-netflix-theme.css">View theme CSS</a>
+        <button class="secondary-button" id="copyCss" type="button">Copy install line</button>
+      </div>
+      <p class="copy-status" id="copyStatus" aria-live="polite"></p>
+      <div class="install-line"><code>@import url("https://913aycltfm.github.io/jellyfin-netflix-theme/jellyfin-netflix-theme.css");</code></div>
+      <p class="note">If your GitHub Pages URL differs, replace the import URL with the published CSS address shown in this repository.</p>
+    </section>
+    <section class="features" aria-labelledby="features-title">
+      <p class="eyebrow">MADE FOR JELLYFIN</p>
+      <h2 id="features-title">The details matter.</h2>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-icon">◼</span><h3>Deep dark surfaces</h3><p>Dark backgrounds and clear white text keep the focus on your library.</p></article>
+        <article class="feature"><span class="feature-icon red">●</span><h3>Netflix-red accents</h3><p>Red highlights for buttons, navigation, playback progress, and Live TV guide indicators.</p></article>
+        <article class="feature"><span class="feature-icon">▧</span><h3>Image-safe styling</h3><p>Poster and backdrop images keep their natural appearance without CSS filters or forced aspect-ratio changes.</p></article>
+        <article class="feature"><span class="feature-icon">↗</span><h3>Responsive & accessible</h3><p>Mobile-friendly adjustments, visible keyboard focus, and reduced-motion support.</p></article>
+      </div>
+    </section>
+    <section class="install" id="install">
+      <p class="eyebrow">QUICK SETUP</p><h2>Install in Jellyfin</h2>
+      <ol>
+        <li>Open Jellyfin and sign in with an administrator account.</li>
+        <li>Open <strong>Dashboard → General → Custom CSS</strong>.</li>
+        <li>Paste the import line above and save.</li>
+        <li>Reload the Jellyfin web interface. If needed, clear the browser cache.</li>
+      </ol>
+      <p class="note">This is a CSS-only theme. Jellyfin clients that do not load the server's web CSS may not display the theme. Selectors can vary between Jellyfin versions, so test the theme on your own server.</p>
+    </section>
+  </main>
+  <footer><span>Jellyfin Netflix Theme</span><a href="https://github.com/913AycltFM/jellyfin-netflix-theme">Open source on GitHub</a></footer>
+  <script>
+    const button = document.getElementById('copyCss');
+    const status = document.getElementById('copyStatus');
+    button.addEventListener('click', async () => {
+      const line = '@import url("https://913aycltfm.github.io/jellyfin-netflix-theme/jellyfin-netflix-theme.css");';
+      try {
+        await navigator.clipboard.writeText(line);
+        status.textContent = 'Install line copied.';
+      } catch {
+        status.textContent = 'Copy is not available in this browser. Select the import line above and copy it manually.';
+      }
+    });
+  </script>
+</body>
+</html>
