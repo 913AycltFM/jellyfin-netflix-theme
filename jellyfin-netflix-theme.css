@@ -1,7 +1,6 @@
 /* ==================================================
    JELLYFIN — NETFLIX-INSPIRED PREMIUM THEME
    CSS ONLY • IMAGE-SAFE • MOBILE FRIENDLY
-   LIVE TV PROGRAMS — NETFLIX RED
    ================================================== */
 
 :root {
@@ -14,64 +13,62 @@
     --netflix-gray: #b3b3b3;
     --netflix-border: #333333;
 
-    /* Jellyfin accent colors */
     --theme-primary-color: #e50914 !important;
     --theme-accent-color: #e50914 !important;
     --theme-accent: #e50914 !important;
     --accent: #e50914 !important;
     --selection-color: #e50914 !important;
     --jf-theme-accent: #e50914 !important;
+    --jf-palette-primary-main: #e50914 !important;
+    --jf-palette-primary-light: #f6121d !important;
+    --jf-palette-primary-dark: #b20710 !important;
+    --jf-palette-secondary-main: #e50914 !important;
+    --jf-palette-secondary-light: #f6121d !important;
+    --jf-palette-secondary-dark: #b20710 !important;
+    --slider-thumb-color: #e50914 !important;
+    accent-color: #e50914 !important;
 }
 
-/* ================= GLOBAL APPEARANCE ================= */
+/* Global appearance */
 html, body, .backgroundContainer, .skinBody, .skinBodyMain,
 .mainAnimatedPages, .page {
     background-color: var(--netflix-black) !important;
     color: var(--netflix-white) !important;
 }
-
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--netflix-white); }
 
-/* ================= NAVIGATION BAR ================= */
+/* Navigation */
 .skinHeader, .skinHeader.semiTransparent {
     background: rgba(20, 20, 20, 0.97) !important;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25) !important;
     backdrop-filter: none !important;
 }
-
 .headerTabs, .emby-tabs { border: none !important; }
-
 .emby-tab-button {
-    color: #dddddd !important;
+    color: #ddd !important;
     font-weight: 500 !important;
     transition: color 0.2s ease;
 }
-
 .emby-tab-button:hover, .emby-tab-button-active {
     color: var(--netflix-red) !important;
 }
+.emby-tab-button-active { border-bottom: 3px solid var(--netflix-red) !important; }
 
-.emby-tab-button-active {
-    border-bottom: 3px solid var(--netflix-red) !important;
-}
-
-/* ================= BUTTONS ================= */
+/* Buttons */
 .emby-button, .paper-icon-button-light {
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
 }
-
 .button-submit, .raised.emby-button, .emby-button.raised,
 .emby-button-submit, .button-primary, .button-accent,
 .btn-primary, .btnPrimary, .accentButton, .mainActionButton,
 .mdl-button--raised, .mdl-button--colored {
     background: var(--netflix-red) !important;
     background-color: var(--netflix-red) !important;
-    color: #ffffff !important;
+    color: #fff !important;
     border-radius: 5px !important;
     border-color: var(--netflix-red) !important;
 }
-
 .button-submit:hover, .raised.emby-button:hover, .emby-button.raised:hover,
 .emby-button-submit:hover, .button-primary:hover, .button-accent:hover,
 .btn-primary:hover, .btnPrimary:hover, .accentButton:hover,
@@ -79,60 +76,29 @@ a:hover { color: var(--netflix-white); }
     background: var(--netflix-red-hover) !important;
     background-color: var(--netflix-red-hover) !important;
     border-color: var(--netflix-red-hover) !important;
-    color: #ffffff !important;
+    color: #fff !important;
 }
-
 .button-submit:active, .raised.emby-button:active, .emby-button.raised:active,
 .emby-button-submit:active, .button-primary:active, .button-accent:active {
     background: #b20710 !important;
     background-color: #b20710 !important;
     border-color: #b20710 !important;
 }
-
 .emby-button:focus-visible, .paper-icon-button-light:focus-visible {
     outline: 2px solid var(--netflix-red) !important;
     outline-offset: 2px;
 }
-
 .paper-icon-button-light:hover, .paper-icon-button-light:focus-visible {
     color: var(--netflix-red) !important;
 }
 
-/* ================= SECTION HEADINGS ================= */
+/* Headings and text */
 .sectionTitle, .sectionTitleText, h1, h2, h3 {
     color: var(--netflix-white) !important;
     font-weight: 700 !important;
     letter-spacing: -0.25px;
 }
 .sectionTitle { margin-bottom: 0.65em !important; }
-
-/* ================= MOVIE AND TV CARDS ================= */
-.card, .cardBox, .cardScalable { border-radius: 7px !important; }
-.cardBox { background: transparent !important; }
-.cardImageContainer {
-    background-color: var(--netflix-card) !important;
-    border-radius: 7px !important;
-}
-
-/* Preserve Jellyfin's native image sizing and behavior */
-.cardImage, .cardImageContainer img, .itemImage,
-.primaryImageWrapper img, .backdropImage {
-    filter: none !important;
-    -webkit-filter: none !important;
-}
-
-/* ================= CARD ANIMATIONS ================= */
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    .cardScalable {
-        transition: transform 220ms ease !important;
-        transform-origin: center center;
-    }
-    .cardScalable:hover { transform: scale(1.035); z-index: 5; }
-    .cardBox { transition: background-color 180ms ease; }
-    .cardBox:hover { background-color: rgba(255, 255, 255, 0.035) !important; }
-}
-
-/* ================= CARD TITLES ================= */
 .cardText, .cardText-first, .itemName, .listItemBodyText {
     color: var(--netflix-white) !important;
     font-weight: 500;
@@ -141,42 +107,133 @@ a:hover { color: var(--netflix-white); }
     color: var(--netflix-gray) !important;
 }
 
-/* ================= WATCH PROGRESS ================= */
-.itemProgressBarForeground {
-    background: var(--netflix-red) !important;
+/* Media cards; preserve original image ratios and rendering */
+.card, .cardBox, .cardScalable { border-radius: 7px !important; }
+.cardBox { background: transparent !important; }
+.cardImageContainer {
+    background-color: var(--netflix-card) !important;
+    border-radius: 7px !important;
+}
+.cardImage, .cardImageContainer img, .itemImage,
+.primaryImageWrapper img, .backdropImage {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .cardScalable {
+        transition: transform 220ms ease !important;
+        transform-origin: center center;
+    }
+    .cardScalable:hover { transform: scale(1.035); z-index: 5; }
+    .cardBox { transition: background-color 180ms ease; }
+    .cardBox:hover { background-color: rgba(255,255,255,.035) !important; }
+}
+
+/* Watched / recording progress: red fill, neutral dark track */
+.itemProgressBar,
+.itemProgressBarBackground,
+.progressBar,
+.progressBarBackground {
+    background-color: #333 !important;
+    background-image: none !important;
     border-radius: 4px !important;
 }
-.itemProgressBar, .itemProgressBarBackground { border-radius: 4px !important; }
-
-/* ================= LIVE TV PROGRAMS ================= */
-.programProgress, .programProgressBar, .programProgressForeground,
-.programCellProgress, .programCellProgressBar, .programCellProgressForeground,
-.programCell .itemProgressBarForeground, .programGuide .itemProgressBarForeground {
-    background: var(--netflix-red) !important;
-    background-color: var(--netflix-red) !important;
+.itemProgressBarForeground,
+.itemProgressBar .itemProgressBarForeground,
+.itemProgressBarBackground .itemProgressBarForeground,
+.cardImageContainer .itemProgressBarForeground,
+.cardBox .itemProgressBarForeground,
+.cardScalable .itemProgressBarForeground,
+.card .itemProgressBarForeground,
+.itemProgressBarForeground-recording,
+.progressBarForeground,
+.progressBarPlayed,
+.playedIndicator,
+.playbackProgress {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    background-image: none !important;
+    border-color: #e50914 !important;
+    color: #e50914 !important;
+    box-shadow: none !important;
 }
 
+/* Live TV program cards and guide progress */
+.programSection .card .itemProgressBarForeground,
+.programSection .card .progressBarForeground,
+.programSection .card .programProgressForeground,
+.programSection .card .programCellProgressForeground,
+.programGuide .card .itemProgressBarForeground,
+.programGuide .card .progressBarForeground,
+.programGuide .card .programProgressForeground,
+.programProgress, .programProgressBar, .programProgressForeground,
+.programCellProgress, .programCellProgressBar, .programCellProgressForeground {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    background-image: none !important;
+    border-color: #e50914 !important;
+}
 .programGuide .currentTimeIndicator, .programGuide .currentTime,
 .programGuide .programGuideCurrentTime, .programGuide .todayIndicator,
 .currentTimeIndicator, .todayIndicator, .programGuide .timeIndicator {
-    background-color: var(--netflix-red) !important;
-    border-color: var(--netflix-red) !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
 }
-
 .programCell:focus, .programCell:focus-visible,
 .programCell.selected, .programCell.selectedProgram {
-    outline-color: var(--netflix-red) !important;
-    border-color: var(--netflix-red) !important;
+    outline-color: #e50914 !important;
+    border-color: #e50914 !important;
 }
 
-.mdl-slider__background-lower {
-    background-color: var(--netflix-red) !important;
+/* Playback seek sliders (legacy Material and current Emby controls) */
+.videoOsdPage, .videoOsdBottom, .osdControls, .nowPlayingBar {
+    --theme-primary-color: #e50914 !important;
+    --theme-accent-color: #e50914 !important;
+    --theme-accent: #e50914 !important;
+    --accent: #e50914 !important;
+    --slider-thumb-color: #e50914 !important;
+    accent-color: #e50914 !important;
 }
-.mdl-slider__background-upper { background-color: #666666 !important; }
-.mdl-slider::-webkit-slider-thumb { background: var(--netflix-red) !important; }
-.mdl-slider::-moz-range-thumb { background: var(--netflix-red) !important; }
+.videoOsdBottom .mdl-slider__background-lower,
+.mdl-slider__background-lower,
+.emby-slider-fill, .emby-slider-thumb,
+.osdControls .emby-slider-fill, .osdControls .emby-slider-thumb,
+.nowPlayingBar .emby-slider-fill, .nowPlayingBar .emby-slider-thumb,
+.osdControls .progressBarForeground, .osdControls .progressBarPlayed,
+.osdControls .played, .osdControls .playedIndicator,
+.osdControls .playbackProgress, .osdControls .itemProgressBarForeground,
+.nowPlayingBar .progressBarForeground, .nowPlayingBar .progressBarPlayed,
+.nowPlayingBar .played, .nowPlayingBar .playbackProgress {
+    background: #e50914 !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
+}
+.videoOsdBottom .mdl-slider__background-upper,
+.emby-slider-background, .emby-slider-track,
+.osdControls .emby-slider-background, .osdControls .emby-slider-track,
+.nowPlayingBar .emby-slider-background, .nowPlayingBar .emby-slider-track {
+    background-color: #555 !important;
+}
+.videoOsdBottom input[type="range"],
+.osdControls input[type="range"],
+.nowPlayingBar input[type="range"] { accent-color: #e50914 !important; }
+.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
+.osdControls input[type="range"]::-webkit-slider-thumb,
+.nowPlayingBar input[type="range"]::-webkit-slider-thumb,
+.videoOsdBottom input[type="range"]::-moz-range-thumb,
+.osdControls input[type="range"]::-moz-range-thumb,
+.nowPlayingBar input[type="range"]::-moz-range-thumb {
+    background: #e50914 !important;
+    border-color: #e50914 !important;
+}
+.videoOsdBottom svg [fill="#00a4dc"],
+.videoOsdBottom svg [fill="#52b54b"],
+.videoOsdBottom svg [fill="#0088cc"],
+.osdControls svg [fill="#00a4dc"],
+.osdControls svg [fill="#52b54b"],
+.osdControls svg [fill="#0088cc"] { fill: #e50914 !important; }
 
-/* ================= DETAILS AND DIALOGS ================= */
+/* Dialogs, drawers and lists */
 .dialog, .dialogContainer, .actionSheet, .actionSheetContent,
 .mainDrawer, .navMenuOption, .paperList {
     background-color: var(--netflix-dark) !important;
@@ -188,338 +245,53 @@ a:hover { color: var(--netflix-white); }
 .dialog, .formDialog { border-radius: 10px !important; }
 .paperList, .listItem-border { border-color: var(--netflix-border) !important; }
 
-/* ================= SEARCH AND FORM FIELDS ================= */
+/* Inputs */
 .emby-input, .emby-textarea, .emby-select {
     background: #252525 !important;
     color: var(--netflix-white) !important;
-    border: 1px solid #444444 !important;
+    border: 1px solid #444 !important;
     border-radius: 5px !important;
 }
 .emby-input:focus, .emby-textarea:focus, .emby-select:focus {
-    border-color: var(--netflix-red) !important;
+    border-color: #e50914 !important;
     outline: none !important;
 }
-input[type="checkbox"], input[type="radio"] { accent-color: var(--netflix-red) !important; }
-
+input[type="checkbox"], input[type="radio"] { accent-color: #e50914 !important; }
 .emby-checkbox:checked + span, .emby-radio:checked + span,
 .mdl-switch.is-checked .mdl-switch__thumb,
 .mdl-switch.is-checked .mdl-switch__track {
-    background-color: var(--netflix-red) !important;
-    border-color: var(--netflix-red) !important;
+    background-color: #e50914 !important;
+    border-color: #e50914 !important;
 }
 
-/* ================= PLAYER CONTROLS ================= */
+/* Player overlays and dashboard */
 .videoOsdBottom, .videoOsdTop {
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.88)) !important;
+    background: linear-gradient(transparent, rgba(0,0,0,.88)) !important;
 }
-
-/* ================= ADMIN DASHBOARD ================= */
 .dashboardDocument, .dashboardGeneralForm, .dashboardConfigurationPage {
     background: var(--netflix-black) !important;
 }
 
-/* ================= SCROLLBARS ================= */
+/* Scrollbars */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: var(--netflix-black); }
-::-webkit-scrollbar-thumb { background: #555555; border-radius: 8px; }
-::-webkit-scrollbar-thumb:hover { background: var(--netflix-red); }
+::-webkit-scrollbar-thumb { background: #555; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #e50914; }
 
-/* ================= MOBILE: PHONES ================= */
+/* Responsive refinements */
 @media (max-width: 600px) {
     .sectionTitle { font-size: 1.1rem !important; }
     .cardImageContainer { border-radius: 5px !important; }
     .skinHeader, .skinHeader.semiTransparent { backdrop-filter: none !important; }
     .cardScalable:hover { transform: none !important; }
 }
-
-/* ================= TABLETS ================= */
 @media (min-width: 601px) and (max-width: 1024px) {
     .sectionTitle { font-size: 1.25rem !important; }
 }
-
-/* ================= ACCESSIBILITY ================= */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
-}
-
-
-/* ==================================================
-   VIDEO PLAYER TIMELINE — FORCE NETFLIX RED
-   Jellyfin versions use different timeline/slider selectors.
-   ================================================== */
-.videoOsdPage,
-.videoOsdBottom,
-.videoOsdBottom .paper-icon-button-light {
-    --theme-primary-color: #e50914 !important;
-    --theme-accent-color: #e50914 !important;
-    --accent: #e50914 !important;
-}
-
-/* Jellyfin / Material Design seek slider */
-.videoOsdBottom .mdl-slider__background-lower,
-.videoOsdBottom .mdl-slider__thumb,
-.videoOsdBottom .mdl-slider::-webkit-slider-thumb,
-.videoOsdBottom .mdl-slider::-moz-range-thumb,
-.videoOsdBottom input[type="range"],
-.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
-.videoOsdBottom input[type="range"]::-moz-range-thumb,
-.mdl-slider__background-lower {
-    accent-color: #e50914 !important;
-}
-
-/* Native range control and common Jellyfin playback progress classes */
-.videoOsdBottom .mdl-slider__background-lower,
-.videoOsdBottom .progressBarForeground,
-.videoOsdBottom .progressBarPlayed,
-.videoOsdBottom .played,
-.videoOsdBottom .playedIndicator,
-.videoOsdBottom .playbackProgress,
-.videoOsdBottom .itemProgressBarForeground,
-.videoOsdBottom .progressBar .progress,
-.videoOsdBottom .slider-container .slider-track,
-.videoOsdBottom .slider-container .slider-fill {
-    background: #e50914 !important;
-    background-color: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
-.videoOsdBottom .mdl-slider::-webkit-slider-thumb {
-    background: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-.videoOsdBottom input[type="range"]::-moz-range-thumb,
-.videoOsdBottom .mdl-slider::-moz-range-thumb {
-    background: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-/* Keep the unplayed portion dark gray */
-.videoOsdBottom .mdl-slider__background-upper,
-.videoOsdBottom .progressBar,
-.videoOsdBottom .progressBarBackground,
-.videoOsdBottom .slider-container .slider-track,
-.videoOsdBottom .slider-track {
-    background-color: #666666 !important;
-}
-
-/* Some Jellyfin builds render the seek bar with a div-based progress element */
-.videoOsdBottom .progressBarForeground,
-.videoOsdBottom .progressBarPlayed,
-.videoOsdBottom .progressBar .progress {
-    background-color: #e50914 !important;
-}
-
-
-/* ================= JELLYFIN SEEK BAR — CROSS-VERSION OVERRIDE =================
-   Target Jellyfin's emby-slider as well as the older Material slider.
-   Keep this block last so it wins over earlier theme rules.
-   ============================================================================ */
-:root,
-.skinBody,
-.videoOsdPage,
-.videoOsdBottom,
-.osdControls,
-.nowPlayingBar {
-    --theme-primary-color: #e50914 !important;
-    --theme-accent-color: #e50914 !important;
-    --theme-accent: #e50914 !important;
-    --accent: #e50914 !important;
-    --slider-thumb-color: #e50914 !important;
-    accent-color: #e50914 !important;
-}
-
-/* Jellyfin's current and legacy slider components */
-.emby-slider,
-.emby-slider-container,
-.emby-slider-background,
-.emby-slider-track,
-.emby-slider-fill,
-.emby-slider-thumb,
-.emby-slider-thumb::before,
-.emby-slider-thumb::after,
-.osdControls .emby-slider,
-.osdControls .emby-slider-background,
-.osdControls .emby-slider-track,
-.osdControls .emby-slider-fill,
-.osdControls .emby-slider-thumb,
-.nowPlayingBar .emby-slider-background,
-.nowPlayingBar .emby-slider-track,
-.nowPlayingBar .emby-slider-fill,
-.nowPlayingBar .emby-slider-thumb {
-    accent-color: #e50914 !important;
-}
-
-.emby-slider-background,
-.emby-slider-track,
-.osdControls .emby-slider-background,
-.osdControls .emby-slider-track,
-.nowPlayingBar .emby-slider-background,
-.nowPlayingBar .emby-slider-track {
-    background-color: #666666 !important;
-}
-
-.emby-slider-fill,
-.emby-slider-thumb,
-.osdControls .emby-slider-fill,
-.osdControls .emby-slider-thumb,
-.nowPlayingBar .emby-slider-fill,
-.nowPlayingBar .emby-slider-thumb {
-    background-color: #e50914 !important;
-    border-color: #e50914 !important;
-    color: #e50914 !important;
-}
-
-/* Progress/seek elements used by different Jellyfin player builds */
-.osdControls .progressBar .progress,
-.osdControls .progressBarForeground,
-.osdControls .progressBarPlayed,
-.osdControls .played,
-.osdControls .playedIndicator,
-.osdControls .playbackProgress,
-.osdControls .itemProgressBarForeground,
-.osdControls .sliderFill,
-.osdControls .sliderValue,
-.nowPlayingBar .progressBarForeground,
-.nowPlayingBar .progressBarPlayed,
-.nowPlayingBar .played,
-.nowPlayingBar .playbackProgress {
-    background: #e50914 !important;
-    background-color: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-/* Native browser seek inputs */
-.videoOsdBottom input[type="range"],
-.osdControls input[type="range"],
-.nowPlayingBar input[type="range"] {
-    accent-color: #e50914 !important;
-}
-.videoOsdBottom input[type="range"]::-webkit-slider-runnable-track,
-.osdControls input[type="range"]::-webkit-slider-runnable-track,
-.nowPlayingBar input[type="range"]::-webkit-slider-runnable-track {
-    accent-color: #e50914 !important;
-}
-.videoOsdBottom input[type="range"]::-webkit-slider-thumb,
-.osdControls input[type="range"]::-webkit-slider-thumb,
-.nowPlayingBar input[type="range"]::-webkit-slider-thumb,
-.videoOsdBottom input[type="range"]::-moz-range-thumb,
-.osdControls input[type="range"]::-moz-range-thumb,
-.nowPlayingBar input[type="range"]::-moz-range-thumb {
-    background: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-/* SVG-based timeline fills */
-.videoOsdBottom svg [fill="#00a4dc"],
-.videoOsdBottom svg [fill="#52b54b"],
-.videoOsdBottom svg [fill="#0088cc"],
-.osdControls svg [fill="#00a4dc"],
-.osdControls svg [fill="#52b54b"],
-.osdControls svg [fill="#0088cc"] {
-    fill: #e50914 !important;
-}
-
-
-/* ================= LIVE TV PROGRAM CARD BARS — FORCE NETFLIX RED =================
-   The screenshot shows cyan progress strips along the bottom of Live TV thumbnails.
-   Cover the common Jellyfin Live TV / guide progress selectors, with high specificity.
-   ============================================================================== */
-.programSection .card .itemProgressBar,
-.programSection .card .itemProgressBarBackground,
-.programSection .card .itemProgressBarForeground,
-.programSection .card .cardProgress,
-.programSection .card .cardProgressBar,
-.programSection .card .cardProgressBarForeground,
-.programSection .card .progressBar,
-.programSection .card .progressBarBackground,
-.programSection .card .progressBarForeground,
-.programSection .card .programProgress,
-.programSection .card .programProgressBar,
-.programSection .card .programProgressForeground,
-.programSection .card .programCellProgress,
-.programSection .card .programCellProgressBar,
-.programSection .card .programCellProgressForeground,
-.programGuide .card .itemProgressBar,
-.programGuide .card .itemProgressBarBackground,
-.programGuide .card .itemProgressBarForeground,
-.programGuide .card .progressBar,
-.programGuide .card .progressBarForeground,
-.programGuide .card .programProgressBar,
-.programGuide .card .programProgressForeground,
-.card .itemProgressBarForeground,
-.card .progressBarForeground,
-.card .programProgressForeground {
-    background: #e50914 !important;
-    background-color: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-/* Jellyfin's progress strip may be rendered as a pseudo-element */
-.programSection .card .itemProgressBar::before,
-.programSection .card .itemProgressBar::after,
-.programSection .card .itemProgressBarForeground::before,
-.programSection .card .itemProgressBarForeground::after,
-.programGuide .card .itemProgressBar::before,
-.programGuide .card .itemProgressBar::after,
-.card .itemProgressBar::before,
-.card .itemProgressBar::after,
-.card .itemProgressBarForeground::before,
-.card .itemProgressBarForeground::after {
-    background: #e50914 !important;
-    background-color: #e50914 !important;
-    border-color: #e50914 !important;
-}
-
-/* Override common Jellyfin cyan/blue accent tokens on card progress */
-.programSection,
-.programGuide,
-.card,
-.cardBox,
-.cardScalable {
-    --theme-primary-color: #e50914 !important;
-    --theme-accent-color: #e50914 !important;
-    --theme-accent: #e50914 !important;
-    --accent: #e50914 !important;
-}
-
-
-/* FINAL FIX: Jellyfin Web uses this exact class for card progress fills.
-   Override the actual palette token and remove any inherited blue gradient. */
-:root {
-    --jf-palette-primary-main: #e50914 !important;
-    --jf-palette-primary-light: #f6121d !important;
-    --jf-palette-primary-dark: #b20710 !important;
-    --jf-palette-secondary-main: #e50914 !important;
-    --jf-palette-secondary-light: #f6121d !important;
-    --jf-palette-secondary-dark: #b20710 !important;
-    --theme-primary-color: #e50914 !important;
-    --theme-accent-color: #e50914 !important;
-}
-
-.itemProgressBarForeground,
-.itemProgressBar .itemProgressBarForeground,
-.itemProgressBarBackground .itemProgressBarForeground,
-.cardImageContainer .itemProgressBarForeground,
-.cardBox .itemProgressBarForeground,
-.cardScalable .itemProgressBarForeground,
-.card .itemProgressBarForeground,
-.itemProgressBarForeground-recording {
-    background: #e50914 !important;
-    background-color: #e50914 !important;
-    background-image: none !important;
-    border-color: #e50914 !important;
-    color: #e50914 !important;
-    box-shadow: none !important;
-}
-
-.itemProgressBar,
-.itemProgressBarBackground {
-    background-color: #164b55 !important;
-    background-image: none !important;
 }
