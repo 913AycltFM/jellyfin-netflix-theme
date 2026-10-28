@@ -1,44 +1,55 @@
 # Jellyfin Netflix Theme
 
-A Netflix-inspired, CSS-only theme for Jellyfin with a dark interface, red accents, subtle poster hover effects, image-safe styling, responsive adjustments, and red Live TV program-guide progress indicators.
+A Netflix-inspired CSS theme for Jellyfin Web, with dark surfaces, Netflix-red accents, responsive styling, image-safe poster effects, and progress indicators.
 
-## Files
-
-- `jellyfin-netflix-theme.css` — stylesheet to import into Jellyfin.
-- `index.html` and `site.css` — GitHub Pages project website.
+> **Scope:** This is a CSS theme, not a Jellyfin plugin. It only affects clients that render Jellyfin Web and load the custom stylesheet. Native client screens may ignore CSS entirely or only apply some rules. See the [official Jellyfin CSS customization documentation](https://jellyfin.org/docs/general/clients/css-customization/).
 
 ## Install the theme
 
-In Jellyfin, open **Dashboard → General → Custom CSS** and add:
+### Option A — Server-wide (recommended)
+
+1. Sign in to Jellyfin as an administrator.
+2. Open **Dashboard → General → Branding** (the exact menu label can vary by Jellyfin version).
+3. Find **Custom CSS code**.
+4. Add this import line. If you already have custom CSS, preserve it and add the import rather than replacing unrelated rules.
 
 ```css
 @import url("https://913aycltfm.github.io/jellyfin-netflix-theme/jellyfin-netflix-theme.css");
 ```
 
-Save and reload the Jellyfin web interface.
+5. Save, then fully reload Jellyfin Web on each device. In a desktop browser, use a hard refresh if old styles remain cached.
 
-## Publish the project website with GitHub Pages
+### Option B — Per-user CSS
 
-1. Open this repository's **Settings**.
-2. Select **Pages** in the left sidebar.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch **main** and folder **/(root)**, then click **Save**.
-5. Wait a few minutes for the website to publish.
+Some Jellyfin versions provide a custom CSS field under **User Settings → Display**. Add the same import there if you want the theme applied through that setting. Check whether **Disable server-provided custom CSS code** is enabled; if it is, the server-wide import may be ignored for that user. Avoid loading conflicting theme imports in both places.
 
-The expected website address is https://913aycltfm.github.io/jellyfin-netflix-theme/ . The expected stylesheet address is https://913aycltfm.github.io/jellyfin-netflix-theme/jellyfin-netflix-theme.css .
+## Troubleshooting
 
-## Theme highlights
+- **The website looks unchanged:** Open the stylesheet URL directly in the affected browser to confirm it loads. Then check that the import URL is spelled exactly as shown above and that the device has internet access to GitHub Pages.
+- **Only some devices change:** CSS applies only to clients that use Jellyfin Web and honor custom CSS. It cannot guarantee a matching look in every native TV/mobile interface.
+- **Some controls remain blue:** Jellyfin selectors and player controls vary by version and playback mode. Share a screenshot and the Jellyfin server/client version so the exact element can be targeted instead of adding broad CSS overrides.
+- **Changes do not appear:** Save the settings, close/reopen the client, and clear its cache where possible. A browser hard refresh can help.
+- **Images or layout look wrong:** Temporarily remove other custom CSS imports to check for conflicts. Keep a copy of your previous CSS before editing.
 
-- Dark, cinematic surfaces with Netflix-red (`#e50914`) accents.
-- Hover effects for poster cards on devices with a mouse or trackpad.
-- Preserves native image presentation; does not force image ratios or apply filters.
-- Red progress styling for playback and common Live TV guide progress/current-time selectors.
-- Mobile and tablet refinements, visible keyboard focus, and reduced-motion support.
+## Project files
 
-## Notes
+- `jellyfin-netflix-theme.css` — theme stylesheet.
+- `index.html` and `site.css` — project website.
 
-This project is CSS-only and does not add JavaScript to Jellyfin itself. Jellyfin web selectors can change between releases, and some clients do not use the server's web CSS. Verify behavior on your Jellyfin version and devices.
+## GitHub Pages
+
+For **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, then branch `main` and folder `/(root)`. Save and wait for deployment.
+
+- Project website: https://913aycltfm.github.io/jellyfin-netflix-theme/
+- Stylesheet: https://913aycltfm.github.io/jellyfin-netflix-theme/jellyfin-netflix-theme.css
+
+## Theme details
+
+- Dark backgrounds and white/gray text.
+- Netflix-red accents for common buttons, focus states, watched progress, and Live TV guide indicators.
+- Preserves original artwork without filters or forced image ratios.
+- Responsive refinements, keyboard focus visibility, and reduced-motion support.
 
 ## License
 
-Choose and add a license before redistributing this theme. Respect the licenses and attribution requirements of any upstream code or assets you incorporate.
+Choose and add a license before redistributing this theme. Respect the licenses and attribution requirements of any upstream code or assets incorporated.
