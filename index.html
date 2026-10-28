@@ -17,21 +17,21 @@
     <section class="hero">
       <p class="eyebrow">COMMUNITY CSS THEME</p>
       <h1>Your Jellyfin.<br><span>More cinematic.</span></h1>
-      <p class="intro">A dark Netflix-inspired look for Jellyfin, with red accents, subtle poster hover effects, responsive styling, and red progress indicators in the Live TV guide.</p>
+      <p class="intro">A dark Netflix-inspired look for Jellyfin Web, with red accents, subtle poster hover effects, responsive styling, and red progress indicators in the Live TV guide.</p>
       <div class="hero-actions">
         <a class="primary-button" href="jellyfin-netflix-theme.css">View theme CSS</a>
         <button class="secondary-button" id="copyCss" type="button">Copy install line</button>
       </div>
       <p class="copy-status" id="copyStatus" aria-live="polite"></p>
       <div class="install-line"><code>@import url("https://913aycltfm.github.io/jellyfin-netflix-theme/jellyfin-netflix-theme.css");</code></div>
-      <p class="note">If your GitHub Pages URL differs, replace the import URL with the published CSS address shown in this repository.</p>
+      <p class="note">The theme only applies to clients that load Jellyfin Web and honor custom CSS. Native TV and mobile interfaces may not support every rule.</p>
     </section>
     <section class="features" aria-labelledby="features-title">
-      <p class="eyebrow">MADE FOR JELLYFIN</p>
+      <p class="eyebrow">MADE FOR JELLYFIN WEB</p>
       <h2 id="features-title">The details matter.</h2>
       <div class="feature-grid">
         <article class="feature"><span class="feature-icon">◼</span><h3>Deep dark surfaces</h3><p>Dark backgrounds and clear white text keep the focus on your library.</p></article>
-        <article class="feature"><span class="feature-icon red">●</span><h3>Netflix-red accents</h3><p>Red highlights for buttons, navigation, playback progress, and Live TV guide indicators.</p></article>
+        <article class="feature"><span class="feature-icon red">●</span><h3>Netflix-red accents</h3><p>Red highlights for buttons, navigation, playback progress, and Live TV guide indicators where supported.</p></article>
         <article class="feature"><span class="feature-icon">▧</span><h3>Image-safe styling</h3><p>Poster and backdrop images keep their natural appearance without CSS filters or forced aspect-ratio changes.</p></article>
         <article class="feature"><span class="feature-icon">↗</span><h3>Responsive & accessible</h3><p>Mobile-friendly adjustments, visible keyboard focus, and reduced-motion support.</p></article>
       </div>
@@ -39,12 +39,13 @@
     <section class="install" id="install">
       <p class="eyebrow">QUICK SETUP</p><h2>Install in Jellyfin</h2>
       <ol>
-        <li>Open Jellyfin and sign in with an administrator account.</li>
-        <li>Open <strong>Dashboard → General → Custom CSS</strong>.</li>
-        <li>Paste the import line above and save.</li>
-        <li>Reload the Jellyfin web interface. If needed, clear the browser cache.</li>
+        <li>Sign in to Jellyfin as an administrator.</li>
+        <li>Open <strong>Dashboard → General → Branding</strong> and find <strong>Custom CSS code</strong>. Menu labels can vary by version.</li>
+        <li>Add the import line above, preserving any other custom CSS you need, then save.</li>
+        <li>Reload Jellyfin Web on each device. Use a hard refresh or clear the client cache if old styles remain.</li>
       </ol>
-      <p class="note">This is a CSS-only theme. Jellyfin clients that do not load the server's web CSS may not display the theme. Selectors can vary between Jellyfin versions, so test the theme on your own server.</p>
+      <p class="note">If you use a per-user CSS field, check whether server-provided CSS is disabled and avoid conflicting duplicate theme imports. CSS cannot force native clients to adopt the web interface theme.</p>
+      <p>For troubleshooting and client-specific limitations, read the <a href="https://github.com/913AycltFM/jellyfin-netflix-theme#troubleshooting">project troubleshooting guide</a>.</p>
     </section>
   </main>
   <footer><span>Jellyfin Netflix Theme</span><a href="https://github.com/913AycltFM/jellyfin-netflix-theme">Open source on GitHub</a></footer>
