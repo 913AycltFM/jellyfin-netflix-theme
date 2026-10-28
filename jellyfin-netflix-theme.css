@@ -295,3 +295,40 @@ input[type="checkbox"], input[type="radio"] { accent-color: #e50914 !important; 
         transition-duration: 0.01ms !important;
     }
 }
+
+
+/* Loading / buffering indicators: Netflix red in Jellyfin Web */
+.mdl-spinner__layer-1,
+.mdl-spinner__layer-2,
+.mdl-spinner__layer-3,
+.mdl-spinner__layer-4,
+.mdl-spinner__circle-clipper .mdl-spinner__circle,
+.mdl-spinner__circle-clipper .mdl-spinner__circle:before,
+.mdl-spinner__circle-clipper .mdl-spinner__circle:after,
+.mdl-spinner__gap-patch .mdl-spinner__circle,
+.mdl-spinner__gap-patch .mdl-spinner__circle:before,
+.mdl-spinner__gap-patch .mdl-spinner__circle:after,
+.mdl-spinner__single-color .mdl-spinner__circle-clipper .mdl-spinner__circle,
+.mdl-spinner__single-color .mdl-spinner__circle-clipper .mdl-spinner__circle:before,
+.mdl-spinner__single-color .mdl-spinner__circle-clipper .mdl-spinner__circle:after {
+    border-color: #e50914 !important;
+}
+.mdl-spinner__layer-1,
+.mdl-spinner__layer-2,
+.mdl-spinner__layer-3,
+.mdl-spinner__layer-4 {
+    border-top-color: #e50914 !important;
+}
+.mdl-spinner,
+.mdl-spinner svg,
+.emby-spinner,
+.loadingSpinner,
+.missingImageIcon {
+    color: #e50914 !important;
+    accent-color: #e50914 !important;
+}
+.emby-spinner circle,
+.loadingSpinner circle,
+.mdl-spinner circle {
+    stroke: #e50914 !important;
+}
